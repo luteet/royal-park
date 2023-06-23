@@ -57,9 +57,12 @@ const gallerySlider = new Splide('.gallery__slider', {
 gallerySlider.on('mounted', function () {
 	setTimeout(() => {
 		gallerySlider.refresh();
+		//gallerySlider.go(1)
+		gallerySlider.options.speed = 0;
 		gallerySlider.go(1)
+		gallerySlider.options.speed = 2000;
 	},0)
-	console.log('test')
+	
 })
 
 gallerySlider.mount()
@@ -247,8 +250,9 @@ body.addEventListener('click', function (event) {
 
 				galleryPopupSlider.destroy();
 				galleryPopupSlider.mount();
-				//galleryPopupSlider.go(0)
+				gallerySlider.options.speed = 0;
 				gallerySlider.go(1)
+				gallerySlider.options.speed = 2000;
 		
 				setTimeout(() => {
 					slider.classList.remove('_hidden');

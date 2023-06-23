@@ -1648,10 +1648,6 @@ progress,sub,sup {
     padding: 0
 }
 
-.noUi-handle,.splide__list,.splide__slide {
-    -webkit-backface-visibility: hidden
-}
-
 .splide,.splide.is-initialized,.splide.is-rendered {
     visibility: visible
 }
@@ -1779,11 +1775,16 @@ summary {
 }
 
 .splide__list {
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     display: flex;
     height: 100%;
     margin: 0!important;
     padding: 0!important
+}
+
+.noUi-handle,.splide__slide {
+    -webkit-backface-visibility: hidden
 }
 
 .splide.is-initialized:not(.is-active) .splide__list {
@@ -2347,7 +2348,11 @@ summary {
     white-space: nowrap
 }
 
-*,.visually-hidden,fieldset {
+.header__nav,body {
+    background: var(--background)
+}
+
+*,fieldset {
     padding: 0
 }
 
@@ -2420,10 +2425,6 @@ input::-ms-clear {
     display: none
 }
 
-.popup,.popup-wrapper,.wrapper,body {
-    display: flex
-}
-
 button {
     cursor: pointer
 }
@@ -2455,7 +2456,7 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0
 }
 
-.btn img,.btn svg,.header__tel--icon,.hero__start-sale svg {
+.btn img,.btn svg,.header__tel--icon {
     margin-right: 8px
 }
 
@@ -2493,6 +2494,10 @@ h1,h2,h3,h4,h5,h6 {
     object-fit: cover
 }
 
+.main,section {
+    position: relative
+}
+
 body,html {
     height: 100%;
     width: 100%;
@@ -2505,14 +2510,17 @@ body,html {
     min-width: 320px
 }
 
+.btn,body {
+    font-size: 1rem
+}
+
 body {
     font-family: var(--main-font);
     color: var(--black);
     font-weight: 400;
-    font-size: 1rem;
     line-height: 150%;
+    display: flex;
     flex-direction: column;
-    background: var(--background);
     padding-right: var(--popup-padding)
 }
 
@@ -2525,19 +2533,18 @@ body._mob-menu-active,body._popup-active {
 }
 
 section {
-    position: relative;
     z-index: 2
 }
 
 .wrapper {
     flex: 1 1 auto;
+    display: flex;
     flex-direction: column
 }
 
 .main {
     overflow: hidden;
-    flex: 1 0 auto;
-    position: relative
+    flex: 1 0 auto
 }
 
 .container {
@@ -2561,7 +2568,6 @@ section:not(:first-child) {
     align-items: center;
     text-align: center;
     padding: 12px 24px;
-    font-size: 1rem;
     font-weight: 500;
     background: var(--accent);
     color: var(--white);
@@ -2647,6 +2653,7 @@ section:not(:first-child) {
     width: 1px;
     height: 1px;
     margin: -1px;
+    padding: 0;
     border: 0;
     white-space: nowrap;
     -webkit-clip-path: inset(100%);
@@ -2675,8 +2682,8 @@ section:not(:first-child) {
     opacity: 1
 }
 
-.hero__start-sale,.popup-close-btn:hover {
-    fill: var(--accent)
+.consultation-popup__close-btn,.gallery-popup__body,.input {
+    background: rgba(0,0,0,0)
 }
 
 .splide__arrow[disabled] {
@@ -2719,25 +2726,20 @@ section:not(:first-child) {
     font-size: 2rem
 }
 
-.consultation-popup__title,.hero__info li b,.hero__start-sale,.hero__text,.title {
-    font-weight: 600
-}
-
 .title {
+    font-weight: 600;
     line-height: 112.5%;
     font-size: 1.875rem
 }
 
-.input,.popup-close-btn,.small-text,.text {
+.text {
+    font-size: 1rem;
     line-height: 100%
 }
 
-.text {
-    font-size: 1rem
-}
-
 .small-text {
-    font-size: .875rem
+    font-size: .875rem;
+    line-height: 100%
 }
 
 .min-title {
@@ -2804,7 +2806,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     border: 1px solid var(--background);
     color: var(--white);
     font-size: 1rem;
-    background: rgba(0,0,0,0);
+    line-height: 100%;
     height: 52px;
     width: 100%;
     transition: border-color .2s ease,color .2s ease
@@ -2885,9 +2887,8 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .popup,.popup-bg {
-    height: 100%;
-    width: 100%;
-    left: 0
+    top: 0;
+    height: 100%
 }
 
 .noUi-origin:nth-child(2) .noUi-handle {
@@ -2896,7 +2897,9 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .popup {
     position: fixed;
-    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
     align-items: center;
     padding: 10px;
     z-index: 100;
@@ -2918,6 +2921,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .popup-wrapper {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 100%;
@@ -2927,7 +2931,8 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .popup-bg {
     position: absolute;
-    top: 0;
+    left: 0;
+    width: 100%;
     background: rgba(15,14,14,.2)
 }
 
@@ -2948,6 +2953,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     position: absolute;
     right: 15px;
     top: 15px;
+    line-height: 100%;
     width: 40px;
     height: 40px;
     background: #fff
@@ -2961,8 +2967,8 @@ input:focus::placeholder,textarea:focus::placeholder {
     background: rgba(255,255,255,.5)
 }
 
-.gallery-popup__bg,.header__wrapper {
-    background: var(--white)
+.popup-close-btn:hover {
+    fill: var(--accent)
 }
 
 .popup-close-btn:active {
@@ -2978,8 +2984,8 @@ input:focus::placeholder,textarea:focus::placeholder {
     grid-template-columns: 100%
 }
 
-.consultation-popup__close-btn,.gallery-popup__body,.header__burger {
-    background: rgba(0,0,0,0)
+.gallery-popup__bg {
+    background: var(--white)
 }
 
 .gallery-popup__body {
@@ -3086,17 +3092,18 @@ input:focus::placeholder,textarea:focus::placeholder {
     width: 100%
 }
 
-.consultation-popup__form--container label:not(:first-child),.header__nav--inner {
-    margin-top: var(--container-padding)
-}
-
 .consultation-popup__form--container label {
     display: block
+}
+
+.consultation-popup__form--container label:not(:first-child) {
+    margin-top: var(--container-padding)
 }
 
 .consultation-popup__title {
     text-align: center;
     font-size: 1.5rem;
+    font-weight: 600;
     line-height: 114.285714%
 }
 
@@ -3118,6 +3125,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 .header__wrapper {
     display: flex;
     justify-content: space-between;
+    background: var(--white);
     border-radius: 60px;
     padding: 4px 24px
 }
@@ -3144,7 +3152,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     top: 0;
     width: 100%;
     height: var(--height-screen,100vh);
-    background: var(--background);
     overflow-y: auto;
     overflow-x: hidden;
     opacity: 0;
@@ -3182,6 +3189,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .header__nav--inner {
     margin-left: var(--container-padding);
+    margin-top: var(--container-padding);
     border-radius: 24px;
     padding: 24px;
     display: flex;
@@ -3214,11 +3222,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     padding: 12px 0
 }
 
-.header__lang,.hero__info li span {
-    font-size: .75rem;
-    line-height: 100%
-}
-
 .header__nav--list li a span {
     display: block;
     overflow: hidden;
@@ -3226,11 +3229,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     transition: -webkit-transform .2s ease;
     transition: transform .2s ease;
     transition: transform .2s ease,-webkit-transform .2s ease
-}
-
-.header__lang--param,.header__tel {
-    display: flex;
-    transition: color .2s ease
 }
 
 .header__nav--list li a span>span:nth-child(1) {
@@ -3245,10 +3243,18 @@ input:focus::placeholder,textarea:focus::placeholder {
     margin-top: 24px;
     height: 32px;
     width: 97px;
+    font-size: .75rem;
+    line-height: 100%;
     background: var(--light-gray);
     border-radius: 50px;
     display: flex;
     align-items: center
+}
+
+.header__lang--param,.header__tel {
+    display: flex;
+    align-items: center;
+    transition: color .2s ease
 }
 
 .header__lang:hover .header__lang--param:nth-child(1) {
@@ -3256,7 +3262,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .header__lang--param {
-    align-items: center;
     justify-content: center;
     text-align: center;
     height: 32px;
@@ -3276,7 +3281,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .header__tel {
     margin-top: 24px;
-    align-items: center;
     font-size: 1rem;
     color: var(--black)
 }
@@ -3320,6 +3324,7 @@ input:focus::placeholder,textarea:focus::placeholder {
     position: relative;
     width: 24px;
     height: 24px;
+    background: rgba(0,0,0,0);
     z-index: 4;
     cursor: pointer;
     display: block
@@ -3410,22 +3415,16 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .hero__start-sale {
     color: var(--accent);
+    fill: var(--accent);
     display: inline-flex;
     align-items: center;
     font-size: .875rem;
-    transition: opacity .15s ease
+    font-weight: 600
 }
 
 .hero__start-sale svg {
-    flex: 0 0 24px
-}
-
-.hero__start-sale:hover {
-    opacity: .8
-}
-
-.hero__start-sale:active {
-    opacity: .6
+    flex: 0 0 24px;
+    margin-right: 8px
 }
 
 .hero__title {
@@ -3434,6 +3433,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .hero__text {
     margin-top: 8px;
+    font-weight: 600;
     max-width: 457px;
     display: inline-block
 }
@@ -3456,9 +3456,15 @@ input:focus::placeholder,textarea:focus::placeholder {
     margin-top: 15px
 }
 
+.hero__info li b {
+    font-weight: 600
+}
+
 .hero__info li span {
     margin-top: 5px;
-    display: block
+    display: block;
+    font-size: .75rem;
+    line-height: 100%
 }
 
 .hero__image {

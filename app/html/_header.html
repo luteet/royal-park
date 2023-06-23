@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Royal Park</title>
+	<link rel="stylesheet" href="css/style-critical.min.css">
+	<link rel="stylesheet" href="css/style.min.css">
+	<script>
+		document.querySelector('html').style.setProperty("--svh", window.innerHeight * 0.01 + "px");
+	</script>
+</head>
+<body>
+
+	<div class="wrapper">
+		<header class="header container">
+			<div class="header__wrapper">
+				<a href="index.html" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" width="150" height="35" loading="lazy" class="header__logo--img">
+				</a>
+				<nav class="header__nav">
+					<div class="header__nav--body">
+						<div class="header__nav--inner">
+							<div class="header__nav--block">
+								<ul class="header__nav--list">
+									<li>
+										<a href="#about-project" class="scroll-to">
+											О проекте
+										</a>
+									</li>
+									<li>
+										<a href="#gallery" class="scroll-to">
+											Галерея проекта
+										</a>
+									</li>
+									<li>
+										<a href="#experts" class="scroll-to">
+											Мнения экспертов
+										</a>
+									</li>
+									<li>
+										<a href="#prices" class="scroll-to">
+											Цены
+										</a>
+									</li>
+								</ul>
+								<a href="tel:+971508521738" class="header__tel">
+									<span class="header__tel--icon">
+										<svg width="24" height="24" viewBox="0 0 24 24">
+											<use xlink:href="img/sprites.svg#phone"></use>
+										</svg>
+									</span>
+									+971 50 852 1738
+								</a>
+								<div class="header__social visible-on-mob">
+									<ul class="header__social--list">
+										<li>
+											<a href="#" title="Telegram">
+												<img src="img/social/telegram.svg" width="28" height="28" loading="lazy" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="#" title="WhatsApp">
+												<img src="img/social/whatsapp.svg" width="28" height="28" loading="lazy" alt="">
+											</a>
+										</li>
+										<li>
+											<a href="#" title="Instagram">
+												<img src="img/social/instagram.svg" width="28" height="28" loading="lazy" alt="">
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<button type="button" class="header__lang">
+								<a href="#" class="header__lang--param">
+									RU
+								</a>
+								<span class="header__lang--switch"></span>
+								<a href="#" class="header__lang--param">
+									EN
+								</a>
+							</button>
+						</div>
+					</div>
+				</nav>
+				<button class="header__burger" type="button" aria-label="Menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</header>

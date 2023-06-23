@@ -1,0 +1,74 @@
+input, textarea {
+	&::placeholder {
+		transition: opacity .2s ease;
+		opacity: 1;
+	}
+	
+	&:focus::placeholder {
+		opacity: 0;
+	}
+}
+
+.input {
+	padding: 18px 16px;
+	border-radius: 100px;
+	border: 1px solid var(--background);
+	color: var(--white);
+	&::placeholder {
+		color: var(--white);
+	}
+	font-size: 1rem;
+	line-height: 100%;
+	background: transparent;
+	height: 52px;
+	width: 100%;
+
+	transition: border-color .2s ease, color .2s ease;
+	&:hover, &:focus {
+		border-color: var(--accent);
+	}
+	
+	&._dark {
+		border-color: var(--black);
+		color: var(--black);
+		&::placeholder {
+			color: var(--black);
+		}
+		&:hover, &:focus {
+			color: var(--accent);
+			border-color: var(--accent);
+		}	
+	}
+}
+
+.noUi-horizontal {
+	height: 2px;
+	background: var(--accent);
+}
+
+.noUi-connect {
+	background: var(--white);
+}
+
+.noUi-target {
+	border: 0;
+	box-shadow: none;
+}
+
+
+
+.noUi-horizontal .noUi-handle {
+	cursor: pointer;
+	right: -6px; top: -5px;
+	width: 12px; height: 12px;
+	border-radius: 50%;
+	border: 0;
+	box-shadow: none;
+	&::before, &::after {
+		display: none;
+	}
+}
+
+.noUi-origin:nth-child(2) .noUi-handle {
+	right: -12px
+}

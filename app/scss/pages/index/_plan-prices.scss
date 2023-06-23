@@ -1,0 +1,621 @@
+.plan-prices {
+
+	@include _992 {
+		display: grid;
+		grid-template-columns: 300px auto;
+		gap: 0 30px;
+
+		margin-top: 130px; padding-bottom: 110px;
+	}
+
+	margin-top: 64px; padding-bottom: 32px;
+
+	background: var(--background-2);
+	border-radius: 24px;
+
+	position: static;
+
+	// .plan-prices__header
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		@include _992 {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 54px;
+		}
+
+		
+		grid-column: 2 span;
+	}
+
+	// .plan-prices__title
+
+	&__title {
+	}
+
+	// .plan-prices__consultation
+
+	&__consultation {
+		margin-top: 30px;
+		min-height: 60px;
+		@include _992 {
+			margin-top: 0;
+		}
+	}
+
+	// .plan-prices__filter
+
+	&__filter {
+		margin-top: var(--container-padding);
+		@include _992 {
+			margin-top: 0;
+		}
+	}
+
+	// .plan-prices__result
+
+	&__result {
+		margin-top: 32px;
+		@include _992 {
+			margin-top: 0;
+		}
+		display: flex;
+		flex-direction: column;
+	}
+
+	// .plan-prices__list
+
+	&__list {
+		display: grid;
+		grid-template-columns: 100%;
+		@media (min-width: 425px) {
+			grid-template-columns: repeat(2,1fr);
+		}
+		gap: 16px;
+		@include _992 {
+			gap: 30px;
+		}
+		@media (min-width: 1100px) {
+			grid-template-columns: repeat(3,1fr);
+		}
+		
+		grid-template-rows: 1fr;
+	}
+
+	// .plan-prices__card
+
+	&__card {
+	}
+
+	// .plan-prices__loadmore
+
+	&__loadmore {
+		margin-top: var(--container-padding);
+		align-self: center;
+		background: transparent;
+		padding: 8px 0;
+		border-bottom: 1px solid var(--black);
+
+		transition: color .2s ease, border-color .2s ease;
+		&:hover {
+			color: var(--accent);
+			border-color: var(--accent);
+		}
+		
+		&:active {
+			color: var(--accent-active);
+			border-color: var(--accent-active);
+		}
+	}
+}
+
+.plan-filter {
+
+	// .plan-filter__target
+
+	&__target {
+		width: 100%; min-height: 60px;
+		svg {
+			margin-left: 8px;
+		}
+	}
+
+	// .plan-filter__popup
+
+	&__popup {
+
+		position: fixed;
+		left: 0; top: 0;
+		z-index: 7;
+		backdrop-filter: blur(5px);
+		width: 100%; height: 100%;
+		padding: 23px 16px;
+		background: rgba(15, 14, 14, 0.2);
+
+		transition: opacity .4s ease, visibility .4s ease;
+		opacity: 0; visibility: hidden;
+
+		&._active {
+			opacity: 1; visibility: visible;
+		}
+
+		display: flex;
+		justify-content: center;
+		@include _992 {
+			opacity: 1; visibility: visible;
+			display: block;
+			width: auto; height: auto;
+			padding: 0;
+			position: static;
+			z-index: auto;
+			backdrop-filter: none;
+			background: transparent;
+		}
+
+		&--bg {
+			position: absolute;
+			left: 0; top: 0;
+			width: 100%; height: 100%;
+			@include _992 {
+				display: none;
+			}
+		}
+
+		&--wrapper {
+
+			display: flex;
+			justify-content: center;
+
+			overflow-y: auto;
+			max-width: 500px; width: 100%;
+
+			border-radius: var(--container-padding);
+			background: var(--dark-blue);
+			@include _992 {
+				overflow: visible;
+				display: block;
+			}
+		}
+
+		// .plan-filter__popup--close
+
+		&--close {
+			position: absolute;
+			right: 0; top: 0;
+			width: 60px; height: 60px;
+			background: transparent;
+			fill: var(--white);
+			@include _992 {
+				display: none;
+			}
+		}
+
+		// .plan-filter__popup--body
+
+		&--body {
+			position: relative;
+			
+			padding: 24px;
+			border-radius: var(--container-padding);
+			color: var(--white);
+			min-height: 100%;
+
+			display: flex;
+			flex-direction: column;
+
+			max-width: 500px; width: 100%;
+			@include _992 {
+				max-width: none; width: auto;
+			}
+		}
+	}
+
+	// .plan-filter__title
+
+	&__title {
+	}
+
+	// .plan-filter__sort-row
+
+	&__sort-row {
+		margin-top: var(--container-padding);
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		margin: -7.5px; padding-top: 16px;
+	}
+
+	// .plan-filter__sort-btn
+
+	&__sort-btn {
+		flex: 0 1 calc(50% - 20px);
+		font-size: 0.875rem;
+		line-height: 100%;
+
+		margin: 7.5px; 
+
+		display: inline-block;
+
+		input:checked + span {
+			background: var(--accent);
+			border-color: var(--accent);
+		}
+
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			padding: 10px 12px;
+
+			cursor: pointer;
+
+			border-radius: 100px;
+			border: 1px solid var(--white);
+			
+			&:hover {
+				box-shadow: var(--hover-shadow);
+				background: var(--accent);
+				border-color: var(--accent);
+			}
+		
+			&:active {
+				box-shadow: none;
+				background: var(--accent-active);
+				border-color: var(--accent-active);
+			}
+		
+			border-radius: 50px;
+		
+			transition: background .3s ease, box-shadow .3s ease, color .2s ease, border-color .3s ease;
+		}
+
+		svg {
+			margin-left: 8px;
+			flex: 0 0 24px;
+			fill: var(--white);
+		}
+
+		input {
+			position: absolute;
+			width: 1px; height: 1px;
+			margin: -1px; padding: 0;
+			border: 0;
+			
+			white-space: nowrap;
+			clip-path: inset(100%);
+			clip: rect(0 0 0 0);
+			overflow: hidden;
+		}
+	}
+
+	// .plan-filter__range
+
+	&__range {
+
+		> span {
+			font-size: 0.875rem;
+			line-height: 100%;
+		}
+		margin-top: 24px; margin-bottom: 8px;
+
+		// .plan-filter__range--element
+
+		&--element {
+			margin-top: 14px;
+		}
+
+		// .plan-filter__range--info
+
+		&--info {
+			margin-top: var(--container-padding);
+
+			font-size: 0.875rem;
+			line-height: 100%;
+
+			display: flex;
+			justify-content: space-between;
+		}
+
+		// .plan-filter__range--min
+
+		&--min {
+		}
+
+		// .plan-filter__range--max
+
+		&--max {
+		}
+	}
+
+	// .plan-filter__param-row
+
+	&__param-row {
+
+		margin-top: 32px;
+
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 9px;
+
+		span {
+			grid-column: 4 span;
+			font-size: 0.875rem;
+			font-weight: 600;
+			line-height: 100%;
+			user-select: none;
+			margin-bottom: 5px;
+		}
+
+		// .plan-filter__param-row--btn
+
+		&--btn {
+
+			input {
+				position: absolute;
+				width: 1px; height: 1px;
+				margin: -1px; padding: 0;
+				border: 0;
+				
+				white-space: nowrap;
+				clip-path: inset(100%);
+				clip: rect(0 0 0 0);
+				overflow: hidden;
+			}
+
+			span {
+				cursor: pointer;
+				display: block;
+				padding: 10px 16px;
+				border-radius: 100px;
+				background: var(--background);
+				color: var(--black);
+				font-size: 0.75rem;
+				line-height: 100%;
+				font-weight: 500;
+				text-align: center;
+				transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+				&:hover {
+					background: var(--accent);
+					color: var(--white);
+					box-shadow: var(--hover-shadow);
+				}
+				
+				&:active {
+					background: var(--accent-active);
+					box-shadow: none;
+				}
+			}
+
+			input:checked + span {
+				background: var(--accent);
+				color: var(--white);
+			}
+		}
+	}
+
+	// .plan-filter__checkbox-list
+
+	&__checkbox-list {
+		margin-top: 24px; margin-bottom: -8px;
+
+		display: flex;
+		flex-direction: column;
+		/* label:hover input + span + span {
+			color: var(--accent);
+		}
+
+		label:active input + span + span {
+			color: var(--accent);
+		} */
+
+		label {
+			position: relative;
+			display: flex;
+
+			padding: 8px 0;
+			cursor: pointer;
+
+			input {
+				position: absolute;
+				width: 1px; height: 1px;
+				margin: -1px; padding: 0;
+				border: 0;
+				
+				white-space: nowrap;
+				clip-path: inset(100%);
+				clip: rect(0 0 0 0);
+				overflow: hidden;
+			}
+
+			input + span {
+				width: var(--container-padding); height: var(--container-padding);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				border: 1px solid var(--white);
+				transition: background .15s ease;
+				fill: transparent;
+				border-radius: 4px;
+				margin-right: 8px; margin-top: -1px;
+				flex: 0 0 var(--container-padding);
+
+				svg {
+					transition: fill .15s ease;
+				}
+			}
+
+			input:checked + span {
+				background: var(--white);
+				fill: var(--dark-blue);
+			}
+
+			input + span + span {
+				font-size: 0.875rem;
+				line-height: 100%;
+				user-select: none;
+				transition: color .2s ease;
+			}
+
+			
+		}
+	}
+
+	// .plan-filter__result
+
+	&__result {
+		flex: 1 1 auto;
+
+		margin-top: 32px;
+		text-align: center;
+
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+
+		span {
+			padding: 0 5px;
+		}
+
+		font-size: 0.875rem;
+		line-height: 100%;
+		font-weight: 600;
+	}
+
+	// .plan-filter__btn
+
+	&__btn {
+		margin-top: var(--container-padding);
+		width: 100%;
+
+		& + br {
+			@include _992 {
+				display: none;
+			}
+		}
+	}
+}
+
+.plan-card {
+
+	// .plan-card__body
+
+	&__body {
+		background: var(--white);
+		border-radius: var(--container-padding);
+		padding: var(--container-padding);
+		@include _550 {
+			padding: 24px;
+		}
+		min-height: 100%;
+
+		display: flex;
+		flex-direction: column;
+
+		border: 1px solid var(--white);
+		transition: border-color .3s ease, box-shadow .3s ease;
+		&:hover {
+			border-color: var(--accent);
+			box-shadow: var(--hover-shadow);
+		}
+		
+		&:active {
+			border-color: var(--accent-active);
+			box-shadow: none;
+		}
+		
+	}
+
+	// .plan-card__id
+
+	&__id {
+		display: inline-block;
+		border-radius: 100px;
+		background: var(--light-gray);
+		font-size: 0.75rem;
+		@include _550 {
+			font-size: 0.875rem;
+		}
+		line-height: 100%;
+		padding: 10px 12px;
+
+		align-self: flex-start;
+	}
+
+	// .plan-card__info
+
+	&__info {
+		margin-top: var(--container-padding);
+
+		display: flex;
+		flex-direction: column;
+
+		li:not(:first-child) {
+			margin-top: 8px;
+		}
+
+		li {
+			display: flex;
+			font-size: 0.75rem;
+			@include _550 {
+				font-size: 0.875rem;
+			}
+			line-height: 100%;
+
+			&::before {
+				content: '';
+				display: inline-block;
+				width: 18px; height: 18px;
+				flex: 0 0 18px;
+				margin-right: 4px; margin-top: -2px;
+				background: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='7.5' stroke='%23243048'/%3E%3Cpath d='M6.37503 9.375L7.87503 10.875L11.625 7.125' stroke='%23243048' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A")
+				center / contain no-repeat;
+			}
+		}
+	}
+
+	// .plan-card__image
+
+	&__image {
+		margin-top: 16px;
+		@include _550 {
+			margin-top: 20px;
+		}
+
+		text-align: center;
+		flex: 1 1 auto;
+
+		img {
+			max-width: 100%;
+			object-fit: contain;
+		}
+	}
+
+	// .plan-card__footer
+
+	&__footer {
+		margin-top: var(--container-padding);
+	}
+
+	// .plan-card__price
+
+	&__price {
+		font-size: 1.5rem;
+		font-weight: 600;
+		line-height: 100%;
+		margin-right: 12px;
+	}
+
+	// .plan-card__add-price
+
+	&__add-price {
+		font-size: 0.75rem;
+		line-height: 100%;
+
+	}
+}

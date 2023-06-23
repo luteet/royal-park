@@ -1,0 +1,138 @@
+.faq {
+
+	position: relative;
+
+	// .faq__title
+
+	&__title {
+	}
+
+	// .faq__list
+
+	&__list {
+		margin-top: 32px;
+		@include _992 {
+			margin-top: 56px;
+		}
+
+		display: flex;
+		flex-direction: column;
+	}
+
+	// .faq__item
+
+	&__item {
+		&:not(:first-child) {
+			margin-top: var(--container-padding);
+			@include _768 {
+				margin-top: 24px;
+			}
+		}
+	}
+
+	// .faq__question
+
+	&__question {
+
+		background: var(--background-2);
+		border-radius: var(--container-padding);
+		padding: 12px;
+		z-index: 2;
+		position: relative;
+
+		width: 100%;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		text-align: left;
+
+		font-size: 1rem;
+		@include _768 {
+			font-size: 1.125rem;
+			padding: var(--container-padding);
+		}
+		font-weight: 600;
+		line-height: 130%;
+
+		border: 1px solid var(--background-2);
+
+		@include _992 {
+			font-size: 1.25rem;
+			transition: border-color .3s ease, box-shadow .3s ease;
+			&:hover {
+				border-color: var(--accent);
+				box-shadow: var(--hover-shadow);
+			}
+			
+			&:active {
+				border-color: var(--accent-active);
+				box-shadow: none;
+			}
+		}
+
+		// .faq__question--icon
+
+		&--icon {
+			display: inline-block;
+			width: 22px; height: 22px;
+			border-radius: 50%;
+			border: 1px solid var(--black);
+			position: relative;
+
+			margin-left: 10px;
+			flex: 0 0 22px;
+
+			&::before, &::after {
+				content: '';
+				position: absolute;
+				left: 50%; top: 50%;
+				transform: translate(-50%,-50%);
+				width: 65%; height: 1px;
+				background: var(--black);
+			}
+
+			&::before {
+				transform: translate(-50%,-50%) rotate(90deg);
+				transition: transform .3s ease;
+			}
+		}
+	}
+
+	&__item._active & {
+		&__question--icon {
+			&::before {
+				transform: translate(-50%,-50%) rotate(0deg);
+			}
+		}
+
+		&__answear {
+			grid-template-rows: 1fr;
+		}
+	}
+
+	// .faq__answear
+
+	&__answear {
+
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows .3s ease;
+
+		&--wrapper {
+			overflow: hidden;
+		}
+
+		// .faq__answear--container
+
+		&--container {
+			padding: 16px;
+			border-radius: var(--container-padding);
+			background: var(--white);
+
+			p:not(:first-child) {
+				padding-top: var(--container-padding);
+			}
+		}
+	}
+}

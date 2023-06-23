@@ -1,0 +1,101 @@
+
+@font-face {
+	@include font-include('Manrope', 400, swap, normal, 'Manrope-Regular');
+}
+
+@font-face {
+	@include font-include('Manrope', 500, swap, normal, 'Manrope-Medium');
+}
+
+@font-face {
+	@include font-include('Manrope', 600, swap, normal, 'Manrope-Semibold');
+}
+
+@font-face {
+	@include font-include('Manrope', 700, swap, normal, 'Manrope-Bold');
+}
+
+@font-face {
+	@include font-include('Manrope', 800, swap, normal, 'Manrope-ExtraBold');
+}
+
+.main-title {
+	font-family: var(--title-font);
+	font-weight: 800;
+	line-height: 100%;
+
+	font-size: 2rem;
+
+	@include _550 {
+		font-size: 2.5rem;
+	}
+
+	@include _768 {
+		font-size: 3rem;
+		line-height: 111%;
+	}
+
+	@include _992 {
+		font-size: 4.5rem;
+	}
+}
+
+.title {
+	
+	font-family: var(--title-font);
+	font-weight: 600;
+	line-height: 112.5%;
+
+	font-size: 1.875rem;
+
+	@include _550 {
+		font-size: 2rem;
+	}
+
+	@include _768 {
+		font-size: 2.5rem;
+	}
+
+	@include _992 {
+		font-size: 3rem;
+	}
+
+}
+
+.text {
+	font-size: 1rem;
+	line-height: 100%;
+}
+
+.small-text {
+	font-size: 0.875rem;
+	line-height: 100%;
+}
+
+.min-title {
+	font-weight: 700;
+	font-size: 1.5rem;
+	line-height: 116.666667%;
+	&._adaptive {
+		font-size: 1.125rem;
+		font-weight: 500;
+		@include _768 {
+			font-size: 1.25rem;
+			font-weight: 700;
+		}
+		@include _992 {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+.section-title {
+
+	font-family: var(--title-font);
+	font-weight: 700;
+
+}
+
+.txt-center {
+	text-align: center;
+}

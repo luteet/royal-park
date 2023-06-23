@@ -1,0 +1,167 @@
+		<footer class="footer container">
+			<a href="index.html" class="footer__logo">
+				<img src="img/logo-light.svg" width="98" height="80" loading="lazy" alt="Logo" class="footer__logo--img">
+			</a>
+			<div class="footer__links">
+				<div class="footer__tel">
+					<a href="tel:+971508521738" class="footer__tel--link">
+						<span class="footer__tel--icon">
+							<svg width="24" height="24" viewBox="0 0 24 24">
+								<use xlink:href="img/sprites.svg#phone"></use>
+							</svg>
+						</span>
+						+971 50 852 1738
+					</a>
+				</div>
+				<div class="footer__social">
+					<ul>
+						<li>
+							<a href="#" title="Telegram">
+								<img src="img/social/telegram.svg" width="28" height="28" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="#" title="WhatsApp">
+								<img src="img/social/whatsapp.svg" width="28" height="28" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="#" title="Instagram">
+								<img src="img/social/instagram.svg" width="28" height="28" alt="">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<nav class="footer__nav">
+				<ul>
+					<li>
+						<a href="#" class="scroll-to">
+							О проекте
+						</a>
+					</li>
+					<li>
+						<a href="#" class="scroll-to">
+							Галерея проекта
+						</a>
+					</li>
+					<li>
+						<a href="#" class="scroll-to">
+							Мнения экспертов
+						</a>
+					</li>
+					<li>
+						<a href="#" class="scroll-to">
+							Цены
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="footer__to-up">
+				<button type="button" class="footer__to-up--btn scroll-to" title="to top">
+					<svg width="32" height="32" viewBox="0 0 32 32">
+						<use xlink:href="img/sprites.svg#arrow-to-up"></use>
+					</svg>
+				</button>
+			</div>
+		</footer>
+	</div>
+
+	<div class="gallery-popup popup" id="gallery-popup" style="display: none;">
+		<div class="gallery-popup__wrapper popup-wrapper">
+			<div class="gallery-popup__bg popup-bg popup-close"></div>
+			<div class="gallery-popup__body popup-body">
+				<button type="button" class="gallery-popup__close-btn popup-close-btn popup-close" title="Close">
+					<svg width="24" height="24" viewBox="0 0 24 24">
+						<use xlink:href="img/sprites.svg#close"></use>
+					</svg>
+				</button>
+				<div class="gallery-popup__slider splide">
+					<div class="gallery-popup__slider--track splide__track">
+						<ul class="gallery-popup__slider--list splide__list">
+							@@loop("_gallery-popup-slides.html", [
+								{
+									"category": "1",
+								},
+								{
+									"category": "1",
+								},
+								{
+									"category": "2",
+								},
+								{
+									"category": "2",
+								},
+								{
+									"category": "3",
+								},
+								{
+									"category": "3",
+								},
+								{
+									"category": "4",
+								},
+								{
+									"category": "4",
+								}
+							])
+						</ul>
+					</div>
+					<div class="gallery-popup__slider--arrows splide__arrows">
+						<button class="gallery-popup__slider--arrow splide__arrow splide__arrow--prev" type="button">
+							<svg width="40" height="40" viewBox="0 0 40 40">
+								<use xlink:href="img/sprites.svg#slider-arrow-prev"></use>
+							</svg>
+						</button>
+						<button class="gallery-popup__slider--arrow splide__arrow splide__arrow--next" type="button">
+							<svg width="40" height="40" viewBox="0 0 40 40">
+								<use xlink:href="img/sprites.svg#slider-arrow-next"></use>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="consultation-popup popup" id="consultation-popup">
+		<div class="consultation-popup__wrapper popup-wrapper">
+			<div class="consultation-popup__bg popup-bg popup-close"></div>
+			<div class="consultation-popup__body popup-body">
+				<button type="button" class="consultation-popup__close-btn popup-close-btn popup-close" title="Закрыть">
+					<svg width="24" height="24" viewBox="0 0 24 24">
+						<use xlink:href="img/sprites.svg#close"></use>
+					</svg>
+				</button>
+				<div class="consultation-popup__image">
+					<picture>
+						<source srcset="img/index/gallery/gallery-slide-2.avif" type="image/avif">
+						<source srcset="img/index/gallery/gallery-slide-2.webp" type="image/webp">
+						<img src="img/index/gallery/gallery-slide-2.jpg" alt="" width="414" height="571" loading="lazy">
+					</picture>
+				</div>
+				<form method="post" class="consultation-popup__form">
+					<h2 class="consultation-popup__title">
+						Заполните форму обратной связи и наш менеджер Вам перезвонит
+					</h2>
+					<div class="consultation-popup__form--container">
+						<label>
+							<input type="text" name="your-name" placeholder="Ваше имя" required class="input _dark">
+						</label>
+						<label>
+							<input type="tel" name="phone" placeholder="Ваш номер телефона" required class="input _dark">
+						</label>
+						<button class="consultation-popup__submit btn" type="submit">
+							Отправить заявку
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/libs.min.js"></script>
+	<script src="js/main.min.js"></script>
+
+</body>
+</html>

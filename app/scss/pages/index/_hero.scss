@@ -1,0 +1,266 @@
+.hero {
+
+	&__row {
+		@include _768 {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+		position: relative;
+	}
+
+	// .hero__content
+
+	&__content {
+		padding: calc(var(--height-header) + 30px) 0 30px 0;
+		position: relative;
+		z-index: 2;
+
+		text-align: center;
+		@include _768 {
+			padding: calc(var(--height-header) + 73px) 30px calc(var(--height-header) + 73px) 0;
+			text-align: left;
+		}
+		
+		&::before {
+			content: '';
+			position: absolute;
+			right: var(--negative-container-padding); top: 0;
+			width: calc(100% + (var(--container-padding) * 2)); height: 100%;
+			background: var(--background-2);
+			z-index: -1;
+			border-radius: 0px 0px 24px 24px;
+			@include _768 {
+				width: 50vw;
+				right: 0;
+			}
+		}
+	}
+
+	// .hero__start-sale
+
+	&__start-sale {
+		color: var(--accent);
+		fill: var(--accent);
+
+		display: inline-flex;
+		align-items: center;
+
+		font-size: 0.875rem;
+		font-weight: 600;
+
+		svg {
+			flex: 0 0 24px;
+			margin-right: 8px;
+		}
+
+		transition: opacity .15s ease;
+		&:hover {
+			opacity: 0.8;
+		}
+		
+		&:active {
+			opacity: 0.6;
+		}
+	}
+
+	// .hero__title
+
+	&__title {
+		margin-top: 16px;
+		@include _768 {
+			margin-top: 24px;
+		}
+	}
+
+	// .hero__text
+
+	&__text {
+		margin-top: 8px;
+		@include _768 {
+			margin-top: 12px;
+		}
+		font-weight: 600;
+		max-width: 457px;
+		display: inline-block;
+	}
+
+	// .hero__btn
+
+	&__btn {
+		margin-top: 24px;
+		@include _768 {
+			margin-top: 32px;
+		}
+	}
+
+	// .hero__info
+
+	&__info {
+		margin-top: 24px;
+		@include _768 {
+			margin-top: 48px;
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			@include _768 {
+				justify-content: stretch;
+			}
+
+			margin-top: -15px;
+		}
+
+		li {
+			display: flex;
+			flex-direction: column;
+
+			margin-right: 32px; margin-top: 15px;
+
+			b {
+				font-weight: 600;
+			}
+
+			span {
+				margin-top: 5px;
+				display: block;
+				font-size: 0.75rem;
+				line-height: 100%;
+			}
+		}
+	}
+
+	// .hero__image
+
+	&__image {
+
+		position: relative;
+		padding-top: 104%;
+		margin: -24px calc(0px - var(--container-padding)) 0;
+		
+		@include _768 {
+			position: absolute;
+			right: 0; top: 0;
+			width: 50%; height: 100%;
+			margin: 0; padding-top: 0;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0; top: 0;
+			width: 100%; height: 100%;
+			border-radius: 0px 0px 24px 24px;
+			background: rgba(0, 0, 0, 0.1);
+		}
+
+		img, &--element {
+			position: absolute;
+			left: 0; top: 0;
+			width: 100%; height: 100%;
+			object-fit: cover;
+			border-radius: 0px 0px 24px 24px;
+			background: 0 0 / cover no-repeat;
+		}
+	}
+
+	// .hero__consultation
+
+	&__consultation {
+		grid-column: 2 span;
+
+		display: flex;
+		justify-content: center;
+
+		&--body {
+			margin-top: -60px;
+			max-width: 800px; width: 100%;
+			padding: 16px;
+
+			background: var(--white);
+			z-index: 2;
+
+			box-shadow: 0px 107px 217px rgba(112, 131, 164, 0.08), 0px 41px 69px rgba(112, 131, 164, 0.05);
+			border-radius: 16px;
+
+			display: grid;
+			grid-template-columns: 50px auto;
+
+			@include _768 {
+				margin-top: -100px; padding: 32px 24px;
+
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+		
+		
+	}
+
+	// .hero__consultation-avatar
+
+	&__consultation-avatar {
+		margin-right: var(--container-padding);
+		img {
+			width: 40px; height: 40px;
+			@include _768 {
+				width: 64px; height: 64px;
+			}
+			border-radius: 50%;
+		}
+	}
+
+	// .hero__consultation-text
+
+	&__consultation-text {
+		
+		font-weight: 700;
+		font-size: 1.125rem;
+		@include _768 {
+			max-width: 360px;
+			font-size: 1.5rem;
+		}
+		line-height: 116.666667%;
+	}
+
+	// .hero__consultation-list
+
+	&__consultation-list {
+		flex: 1 1 100%;
+		
+		grid-column: 2 span;
+
+		text-align: center;
+
+		@include _768 {
+			margin-top: 28px;
+
+			grid-column: auto;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: 24px;
+
+			
+		}
+	}
+
+	// .hero__consultation-btn
+
+	&__consultation-btn {
+		width: 80%;
+		margin-top: 16px;
+		@include _768 {
+			width: 100%;
+			margin-top: 0;
+		}
+		align-items: center;
+		// .hero__consultation-btn--icon
+
+		&--icon {
+			display: inline-flex;
+		}
+	}
+}

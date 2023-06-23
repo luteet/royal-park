@@ -1,0 +1,101 @@
+.leave-consultation {
+
+	display: grid;
+	padding: 0 var(--container-padding);
+	@include _768 {
+		grid-template-columns: 1fr 1fr;
+		padding: 0;
+	}
+
+	// .leave-consultation__image
+
+	&__image {
+
+		min-height: 247px; max-height: 1000px;
+
+		// .leave-consultation__image--wrapper
+
+		&--wrapper {
+			min-height: 100%; max-height: 1000px;
+			img {
+				border-radius: var(--container-padding);
+				@include _768 {
+					border-radius: 24px;
+				}
+				max-height: 1000px;
+			}
+		}
+	}
+
+	// .leave-consultation__form
+
+	&__form {
+
+		border-radius: var(--container-padding);
+		background: var(--dark-blue);
+		padding: 32px var(--container-padding);
+		@include _550 {
+			padding: 32px 24px;
+		}
+
+		@include _768 {
+			border-radius: 24px;
+		}
+
+		text-align: center;
+		color: var(--white);
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		// .leave-consultation__form--container
+
+		&--container {
+			max-width: 320px;
+			width: 100%;
+			margin-top: 24px;
+			@include _550 {
+				margin-top: 32px;
+			}
+
+			label {
+				display: block;
+				width: 100%;
+			}
+
+			label:not(:first-child) {
+				
+				margin-top: var(--container-padding);
+			}
+		}
+
+		// .leave-consultation__form--submit
+
+		&--submit {
+			margin-top: 24px;
+			@include _550 {
+				margin-top: 32px;
+			}
+			min-height: 52px;
+			width: 100%;
+		}
+	}
+
+	// .leave-consultation__title
+
+	&__title {
+		max-width: 430px;
+	}
+
+	// .leave-consultation__text
+
+	&__text {
+		margin-top: 8px;
+		@include _550 {
+			margin-top: var(--container-padding);
+		}
+		max-width: 450px;
+	}
+}

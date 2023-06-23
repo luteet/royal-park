@@ -54,7 +54,15 @@ const gallerySlider = new Splide('.gallery__slider', {
 	}
 })
 
+gallerySlider.on('mounted', function () {
+	setTimeout(() => {
+		gallerySlider.refresh();
+	},0)
+	console.log('test')
+})
+
 gallerySlider.mount()
+
 
 const galleryPopupSlider = new Splide('.gallery-popup__slider', {
 	type: "loop",

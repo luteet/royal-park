@@ -64,6 +64,7 @@
 		}
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	// .plan-prices__list
@@ -239,58 +240,49 @@
 
 		margin: 7.5px; 
 
-		display: inline-block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-		input:checked + span {
+		padding: 10px 12px;
+
+		cursor: pointer;
+		background: transparent;
+		color: var(--white);
+
+		border-radius: 100px;
+		border: 1px solid var(--white);
+		
+		&:hover {
+			box-shadow: var(--hover-shadow);
 			background: var(--accent);
 			border-color: var(--accent);
 		}
-
-		span {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			padding: 10px 12px;
-
-			cursor: pointer;
-
-			border-radius: 100px;
-			border: 1px solid var(--white);
-			
-			&:hover {
-				box-shadow: var(--hover-shadow);
-				background: var(--accent);
-				border-color: var(--accent);
-			}
-		
-			&:active {
-				box-shadow: none;
-				background: var(--accent-active);
-				border-color: var(--accent-active);
-			}
-		
-			border-radius: 50px;
-		
-			transition: background .3s ease, box-shadow .3s ease, color .2s ease, border-color .3s ease;
+	
+		&:active {
+			box-shadow: none;
+			background: var(--accent-active);
+			border-color: var(--accent-active);
 		}
-
+	
+		border-radius: 50px;
+	
+		transition: background .3s ease, box-shadow .3s ease, color .2s ease, border-color .3s ease;
+		
 		svg {
 			margin-left: 8px;
 			flex: 0 0 24px;
 			fill: var(--white);
 		}
 
-		input {
-			position: absolute;
-			width: 1px; height: 1px;
-			margin: -1px; padding: 0;
-			border: 0;
-			
-			white-space: nowrap;
-			clip-path: inset(100%);
-			clip: rect(0 0 0 0);
-			overflow: hidden;
+		&._active-asc, &._active-desc {
+			background: var(--accent);
+			border-color: var(--accent);
+			&:active {
+				box-shadow: none;
+				background: var(--accent-active);
+				border-color: var(--accent-active);
+			}
 		}
 	}
 
@@ -584,7 +576,7 @@
 	&__image {
 		margin-top: 16px;
 		@include _550 {
-			margin-top: 20px;
+			margin-top: 20px; margin-bottom: 5px;
 		}
 
 		text-align: center;

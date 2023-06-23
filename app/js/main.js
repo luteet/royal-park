@@ -34,6 +34,7 @@ const aboutProjectContent = new Splide('.about-project__content', {
 aboutProjectContent.mount();
 
 const gallerySlider = new Splide('.gallery__slider', {
+	type: "loop",
 	perPage:1,
 	gap: 30,
 	pagination: false,
@@ -56,6 +57,7 @@ const gallerySlider = new Splide('.gallery__slider', {
 gallerySlider.mount()
 
 const galleryPopupSlider = new Splide('.gallery-popup__slider', {
+	type: "loop",
 	perPage:1,
 	gap: 30,
 	pagination: false,
@@ -236,6 +238,7 @@ body.addEventListener('click', function (event) {
 
 				galleryPopupSlider.destroy();
 				galleryPopupSlider.mount();
+				//galleryPopupSlider.go(0)
 		
 				setTimeout(() => {
 					slider.classList.remove('_hidden');
@@ -376,11 +379,46 @@ if(filter) {
 	let url = new URL(document.URL);
 	let params = new URLSearchParams(url.search);
 
-	const sortRadio = filter.querySelectorAll('.plan-filter__sort-btn input');
-	sortRadio.forEach(sortRadio => {
-		sortRadio.addEventListener('change', function (event) {
-			params.set(sortRadio.name, sortRadio.value)
-			history.pushState("", "",`?${params.toString()}`);
+	const sortRadios = filter.querySelectorAll('.plan-filter__sort-btn');
+	sortRadios.forEach(sortRadio => {
+		const icon = sortRadio.querySelector('svg use');
+		sortRadio.addEventListener('click', function (event) {
+
+			sortRadios.forEach(sortRadio2 => {
+				if(sortRadio2 != sortRadio) {
+					const icon = sortRadio2.querySelector('svg use');
+					sortRadio2.classList.remove('_active-asc')
+					sortRadio2.classList.remove('_active-desc')
+					icon.setAttribute('xlink:href', icon.getAttribute('xlink:href').replace(icon.getAttribute('xlink:href').slice(icon.getAttribute('xlink:href').indexOf('#')), "#filter-sort"))
+					params.delete(sortRadio2.dataset.name)
+					
+				}
+			})
+			
+			if(!sortRadio.classList.contains('_active-asc') && !sortRadio.classList.contains('_active-desc')) {
+
+				sortRadio.classList.add('_active-asc');
+				icon.setAttribute('xlink:href', icon.getAttribute('xlink:href').replace(icon.getAttribute('xlink:href').slice(icon.getAttribute('xlink:href').indexOf('#')), "#filter-sort-asc"))
+				params.set(sortRadio.dataset.name, "ASC")
+				history.pushState("", "",`?${params.toString()}`);
+
+			} else if(sortRadio.classList.contains('_active-asc') && !sortRadio.classList.contains('_active-desc')) {
+
+				sortRadio.classList.remove('_active-asc');
+				sortRadio.classList.add('_active-desc');
+				icon.setAttribute('xlink:href', icon.getAttribute('xlink:href').replace(icon.getAttribute('xlink:href').slice(icon.getAttribute('xlink:href').indexOf('#')), "#filter-sort-desc"))
+				params.set(sortRadio.dataset.name, "DESC")
+				history.pushState("", "",`?${params.toString()}`);
+
+			} else if(sortRadio.classList.contains('_active-desc') && !sortRadio.classList.contains('_active-asc')) {
+
+				sortRadio.classList.remove('_active-desc');
+				icon.setAttribute('xlink:href', icon.getAttribute('xlink:href').replace(icon.getAttribute('xlink:href').slice(icon.getAttribute('xlink:href').indexOf('#')), "#filter-sort"))
+				params.delete(sortRadio.dataset.name);
+				history.pushState("", "",`?${params.toString()}`);
+
+			}
+			
 		})
 	})
 
@@ -476,8 +514,6 @@ if(filter) {
 // =-=-=-=-=-=-=-=-=-=-=-=- </filter> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
-
-
 function Popup(arg) {
 
 	let body = document.querySelector('body'),
@@ -514,14 +550,17 @@ function Popup(arg) {
 					popup.style.display = 'flex';
 
 					if(popup.getAttribute('id') == 'gallery-popup') {
-						galleryPopupSlider.options.speed = 0,
-						galleryPopupSlider.go(gallerySlider.index);
+						//galleryPopupSlider.options.speed = 0,
+						galleryPopupSlider.refresh();
+						setTimeout(() => {
+							galleryPopupSlider.go(gallerySlider.index);
+						},0)
 					}
 
 					setTimeout(() => {
 						if (!initStart) {
 							popup.classList.add('_active');
-							galleryPopupSlider.options.speed = 1000;
+							//galleryPopupSlider.options.speed = 1000;
 							function openFunc() {
 								popupCheck = true;
 								popup.classList.add('_active-end');
@@ -574,14 +613,22 @@ function Popup(arg) {
 					}
 
 					popupCheckClose = true;
-					popup.removeEventListener('transitionend', closeFunc)
 					popup.style.display = "none";
+					/* popup.removeEventListener('transitionend', closeFunc) */
+					/* setTimeout(() => {
+						popup.style.display = "none";
+					},400) */
 				}
 
-				popup.addEventListener('transitionend', closeFunc)
+				
+				/* popup.addEventListener('transitionend', closeFunc) */
 
 				popup.classList.remove('_active');
 				popup.classList.remove('_active-end');
+
+				setTimeout(() => {
+					closeFunc()
+				},500)
 
 			}, 0)
 

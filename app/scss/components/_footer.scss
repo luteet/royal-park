@@ -72,6 +72,34 @@
 			@include _768 {
 				padding: 8px 16px;
 			}
+
+			span {
+				display: block;
+				transition: transform .2s ease;
+			}
+
+			> span {
+				position: relative;
+				overflow: hidden;
+
+				span:nth-child(1) {
+					position: absolute;
+					left: 0; top: 50%;
+					transform: translate(0,50%);
+				}
+			}
+
+			@include _992 {
+				&:hover > span span {
+					&:nth-child(1) {
+						transform: translate(0,-50%);
+					}
+
+					&:nth-child(2) {
+						transform: translate(0,-120%);
+					}
+				}
+			}
 			font-size: 1rem;
 			color: var(--white);
 			line-height: 100%;

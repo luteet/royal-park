@@ -1,3 +1,16 @@
+.about-project__video--preview,.about-project__video--preview img,.about-project__video--preview::after {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    position: absolute
+}
+
+.about-project__video--play-btn,.about-project__video--preview {
+    -webkit-user-select: none;
+    transition: opacity .4s ease,visibility .4s ease
+}
+
 .about-project__title {
     grid-column: 2 span;
     margin-right: 40px
@@ -50,12 +63,6 @@
     -ms-user-select: none;
     user-select: none;
     pointer-events: none
-}
-
-.about-project__video--play-btn,.about-project__video--preview {
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    transition: opacity .4s ease,visibility .4s ease
 }
 
 .about-project__download--bg img {
@@ -123,12 +130,8 @@
 }
 
 .about-project__video--preview {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     z-index: 2;
+    -ms-user-select: none;
     user-select: none;
     cursor: pointer;
     opacity: 1;
@@ -137,21 +140,11 @@
 
 .about-project__video--preview::after {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     border-radius: 24px;
     background: rgba(0,0,0,.2)
 }
 
 .about-project__video--preview img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
     border-radius: 24px
@@ -169,6 +162,7 @@
     line-height: 100%;
     color: var(--white);
     pointer-events: none;
+    -ms-user-select: none;
     user-select: none
 }
 
@@ -202,8 +196,8 @@
     width: 100%;
     height: 4px;
     border-radius: 10px;
-    left: 0;
-    content: ""
+    content: "";
+    left: 0
 }
 
 .gallery__filter {
@@ -271,7 +265,7 @@
     visibility: visible
 }
 
-.gallery__slider._hidden {
+.experts__item._active-start .experts__item--text,.gallery__slider._hidden {
     opacity: 0;
     visibility: hidden
 }
@@ -303,11 +297,6 @@
 .experts__item._active {
     width: calc(100% - 133px - 133px - 30px - 30px);
     cursor: default
-}
-
-.experts__item._active-start .experts__item--text {
-    opacity: 0;
-    visibility: hidden
 }
 
 .experts__item._active-end .experts__item--text {
@@ -368,10 +357,6 @@
     transition: width .4s ease,height .4s ease
 }
 
-.experts__slider,.plan-filter__popup--body,.plan-filter__popup--wrapper {
-    border-radius: var(--container-padding)
-}
-
 .experts__item--name {
     font-size: 1.5rem;
     font-weight: 600;
@@ -403,7 +388,8 @@
 .experts__slider {
     margin-top: 32px;
     background: var(--dark-blue);
-    padding: var(--container-padding)
+    padding: var(--container-padding);
+    border-radius: var(--container-padding)
 }
 
 .experts__slider--list {
@@ -543,6 +529,7 @@
     overflow-y: auto;
     max-width: 500px;
     width: 100%;
+    border-radius: var(--container-padding);
     background: var(--dark-blue)
 }
 
@@ -559,6 +546,7 @@
 .plan-filter__popup--body {
     position: relative;
     padding: 24px;
+    border-radius: var(--container-padding);
     color: var(--white);
     min-height: 100%;
     display: flex;
@@ -611,12 +599,11 @@
     border-color: var(--accent-active)
 }
 
-.plan-filter__param-row--btn input,.plan-filter__sort-btn input {
-    padding: 0;
-    border: 0;
-    -webkit-clip-path: inset(100%);
+.plan-filter__checkbox-list label input,.plan-filter__param-row--btn input,.plan-filter__sort-btn input {
     width: 1px;
     height: 1px;
+    padding: 0;
+    border: 0;
     white-space: nowrap;
     overflow: hidden
 }
@@ -630,6 +617,7 @@
 .plan-filter__sort-btn input {
     position: absolute;
     margin: -1px;
+    -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
     clip: rect(0 0 0 0)
 }
@@ -677,6 +665,7 @@
 .plan-filter__param-row--btn input {
     position: absolute;
     margin: -1px;
+    -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
     clip: rect(0 0 0 0)
 }
@@ -727,16 +716,10 @@
 
 .plan-filter__checkbox-list label input {
     position: absolute;
-    width: 1px;
-    height: 1px;
     margin: -1px;
-    padding: 0;
-    border: 0;
-    white-space: nowrap;
     -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden
+    clip: rect(0 0 0 0)
 }
 
 .plan-filter__checkbox-list label input+span {
@@ -1006,10 +989,6 @@
     position: static
 }
 
-.faq,.faq__question,.faq__question--icon {
-    position: relative
-}
-
 .location__slider--arrow.splide__arrow--prev {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg)
@@ -1018,6 +997,10 @@
 .location__slider--arrow.splide__arrow--next {
     -webkit-transform: rotate(0);
     transform: rotate(0)
+}
+
+.faq {
+    position: relative
 }
 
 .faq__list {
@@ -1034,6 +1017,7 @@
     background: var(--background-2);
     padding: 12px;
     z-index: 2;
+    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
@@ -1051,6 +1035,7 @@
     height: 22px;
     border-radius: 50%;
     border: 1px solid var(--black);
+    position: relative;
     margin-left: 10px;
     flex: 0 0 22px
 }
@@ -1202,6 +1187,26 @@
     font-size: 1rem;
     color: var(--white);
     line-height: 100%
+}
+
+.footer__nav a span {
+    display: block;
+    transition: -webkit-transform .2s ease;
+    transition: transform .2s ease;
+    transition: transform .2s ease,-webkit-transform .2s ease
+}
+
+.footer__nav a>span {
+    position: relative;
+    overflow: hidden
+}
+
+.footer__nav a>span span:nth-child(1) {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translate(0,50%);
+    transform: translate(0,50%)
 }
 
 .footer__links {
@@ -1546,6 +1551,16 @@
         flex: 1 1 auto
     }
 
+    .footer__nav a:hover>span span:nth-child(1) {
+        -webkit-transform: translate(0,-50%);
+        transform: translate(0,-50%)
+    }
+
+    .footer__nav a:hover>span span:nth-child(2) {
+        -webkit-transform: translate(0,-120%);
+        transform: translate(0,-120%)
+    }
+
     .footer__links {
         flex-direction: row;
         align-items: center;
@@ -1643,10 +1658,6 @@ progress,sub,sup {
 
 .splide,.splide__container,.splide__slide,sub,sup {
     position: relative
-}
-
-.header__burger::before,.header__nav--body::before,.hero__content::before,.hero__image::after,.noUi-handle:after,.noUi-handle:before {
-    content: ""
 }
 
 body {
@@ -2204,6 +2215,7 @@ summary {
 }
 
 .noUi-handle:after,.noUi-handle:before {
+    content: "";
     display: block;
     position: absolute;
     height: 14px;
@@ -2481,10 +2493,6 @@ h1,h2,h3,h4,h5,h6 {
     object-fit: cover
 }
 
-.main,section {
-    position: relative
-}
-
 body,html {
     height: 100%;
     width: 100%;
@@ -2517,6 +2525,7 @@ body._mob-menu-active,body._popup-active {
 }
 
 section {
+    position: relative;
     z-index: 2
 }
 
@@ -2527,7 +2536,8 @@ section {
 
 .main {
     overflow: hidden;
-    flex: 1 0 auto
+    flex: 1 0 auto;
+    position: relative
 }
 
 .container {
@@ -2663,11 +2673,6 @@ section:not(:first-child) {
     fill: var(--black);
     transition: opacity .2s ease;
     opacity: 1
-}
-
-.popup,.popup-bg {
-    height: 100%;
-    top: 0
 }
 
 .hero__start-sale,.popup-close-btn:hover {
@@ -2879,14 +2884,19 @@ input:focus::placeholder,textarea:focus::placeholder {
     box-shadow: none
 }
 
+.popup,.popup-bg {
+    height: 100%;
+    width: 100%;
+    left: 0
+}
+
 .noUi-origin:nth-child(2) .noUi-handle {
     right: -12px
 }
 
 .popup {
     position: fixed;
-    left: 0;
-    width: 100%;
+    top: 0;
     align-items: center;
     padding: 10px;
     z-index: 100;
@@ -2917,8 +2927,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .popup-bg {
     position: absolute;
-    left: 0;
-    width: 100%;
+    top: 0;
     background: rgba(15,14,14,.2)
 }
 
@@ -2952,6 +2961,10 @@ input:focus::placeholder,textarea:focus::placeholder {
     background: rgba(255,255,255,.5)
 }
 
+.gallery-popup__bg,.header__wrapper {
+    background: var(--white)
+}
+
 .popup-close-btn:active {
     fill: var(--accent-active)
 }
@@ -2963,10 +2976,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 .gallery-popup__wrapper {
     display: grid;
     grid-template-columns: 100%
-}
-
-.gallery-popup__bg {
-    background: var(--white)
 }
 
 .consultation-popup__close-btn,.gallery-popup__body,.header__burger {
@@ -3077,12 +3086,12 @@ input:focus::placeholder,textarea:focus::placeholder {
     width: 100%
 }
 
-.consultation-popup__form--container label {
-    display: block
+.consultation-popup__form--container label:not(:first-child),.header__nav--inner {
+    margin-top: var(--container-padding)
 }
 
-.consultation-popup__form--container label:not(:first-child) {
-    margin-top: var(--container-padding)
+.consultation-popup__form--container label {
+    display: block
 }
 
 .consultation-popup__title {
@@ -3109,7 +3118,6 @@ input:focus::placeholder,textarea:focus::placeholder {
 .header__wrapper {
     display: flex;
     justify-content: space-between;
-    background: var(--white);
     border-radius: 60px;
     padding: 4px 24px
 }
@@ -3161,6 +3169,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .header__nav--body::before {
+    content: "";
     position: fixed;
     left: 50%;
     top: 16px;
@@ -3171,15 +3180,8 @@ input:focus::placeholder,textarea:focus::placeholder {
     z-index: 2
 }
 
-.header__lang,.header__lang--param {
-    height: 32px;
-    border-radius: 50px;
-    display: flex
-}
-
 .header__nav--inner {
     margin-left: var(--container-padding);
-    margin-top: var(--container-padding);
     border-radius: 24px;
     padding: 24px;
     display: flex;
@@ -3206,7 +3208,8 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .header__nav--list li a {
     width: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
     font-size: 1rem;
     padding: 12px 0
 }
@@ -3216,10 +3219,35 @@ input:focus::placeholder,textarea:focus::placeholder {
     line-height: 100%
 }
 
+.header__nav--list li a span {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    transition: -webkit-transform .2s ease;
+    transition: transform .2s ease;
+    transition: transform .2s ease,-webkit-transform .2s ease
+}
+
+.header__lang--param,.header__tel {
+    display: flex;
+    transition: color .2s ease
+}
+
+.header__nav--list li a span>span:nth-child(1) {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translate(0,50%);
+    transform: translate(0,50%)
+}
+
 .header__lang {
     margin-top: 24px;
+    height: 32px;
     width: 97px;
     background: var(--light-gray);
+    border-radius: 50px;
+    display: flex;
     align-items: center
 }
 
@@ -3231,8 +3259,9 @@ input:focus::placeholder,textarea:focus::placeholder {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--gray);
-    transition: color .2s ease
+    height: 32px;
+    border-radius: 50px;
+    color: var(--gray)
 }
 
 .header__lang--param:nth-child(1) {
@@ -3247,11 +3276,9 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .header__tel {
     margin-top: 24px;
-    display: flex;
     align-items: center;
     font-size: 1rem;
-    color: var(--black);
-    transition: color .2s ease
+    color: var(--black)
 }
 
 .header__tel:hover {
@@ -3299,6 +3326,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .header__burger::before {
+    content: "";
     position: absolute;
     left: 50%;
     top: 50%;
@@ -3369,6 +3397,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .hero__content::before {
+    content: "";
     position: absolute;
     right: var(--negative-container-padding);
     top: 0;
@@ -3447,6 +3476,7 @@ input:focus::placeholder,textarea:focus::placeholder {
 }
 
 .hero__image::after {
+    content: "";
     background: rgba(0,0,0,.1)
 }
 
@@ -3757,16 +3787,17 @@ input:focus::placeholder,textarea:focus::placeholder {
     .header__nav--list li a {
         width: auto;
         padding: 10px;
-        font-size: .875rem;
-        transition: color .2s ease
+        font-size: .875rem
     }
 
-    .header__nav--list li a:hover {
-        color: var(--accent)
+    .header__nav--list li a:hover>span span:nth-child(1) {
+        -webkit-transform: translate(0,-50%);
+        transform: translate(0,-50%)
     }
 
-    .header__nav--list li a:active {
-        color: var(--accent-active)
+    .header__nav--list li a:hover>span span:nth-child(2) {
+        -webkit-transform: translate(0,-100%);
+        transform: translate(0,-100%)
     }
 
     .header__lang {

@@ -178,7 +178,24 @@
 
 		&--list li a {
 			width: 100%;
-			display: block;
+			display: flex;
+			flex-direction: column;
+			
+			span {
+				display: block;
+				overflow: hidden;
+				position: relative;
+
+				transition: transform .2s ease;
+			}
+
+			span > span:nth-child(1) {
+				position: absolute;
+				left: 0; top: 50%;
+				transform: translate(0,50%);
+			}
+
+			
 
 			font-size: 1rem;
 			padding: 12px 0;
@@ -189,13 +206,13 @@
 				padding: 10px;
 				font-size: 0.875rem;
 
-				transition: color .2s ease;
-				&:hover {
-					color: var(--accent);
-				}
-				
-				&:active {
-					color: var(--accent-active);
+				&:hover > span span {
+					&:nth-child(1) {
+						transform: translate(0, -50%);
+					}
+					&:nth-child(2) {
+						transform: translate(0,-100%);
+					}
 				}
 			}
 

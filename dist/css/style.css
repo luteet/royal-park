@@ -2702,6 +2702,10 @@ section:not(:first-child) {
     opacity: 1
 }
 
+.input,.popup-close-btn {
+    background: rgba(0,0,0,0)
+}
+
 .splide__arrow[disabled] {
     opacity: .5
 }
@@ -2827,7 +2831,6 @@ input:focus::placeholder,textarea:focus::placeholder {
     border: 1px solid var(--background);
     color: var(--white);
     font-size: 1rem;
-    background: rgba(0,0,0,0);
     height: 52px;
     width: 100%;
     transition: border-color .2s ease,color .2s ease
@@ -2907,18 +2910,15 @@ input:focus::placeholder,textarea:focus::placeholder {
     box-shadow: none
 }
 
-.popup,.popup-bg {
-    height: 100%;
-    width: 100%;
-    left: 0
-}
-
 .noUi-origin:nth-child(2) .noUi-handle {
     right: -12px
 }
 
 .popup {
+    left: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
     align-items: center;
     padding: 10px;
     z-index: 100;
@@ -2949,7 +2949,10 @@ input:focus::placeholder,textarea:focus::placeholder {
 
 .popup-bg {
     position: absolute;
+    left: 0;
     top: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(15,14,14,.2)
 }
 

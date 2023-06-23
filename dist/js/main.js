@@ -57,6 +57,7 @@ const gallerySlider = new Splide('.gallery__slider', {
 gallerySlider.on('mounted', function () {
 	setTimeout(() => {
 		gallerySlider.refresh();
+		gallerySlider.go(1)
 	},0)
 	console.log('test')
 })
@@ -247,6 +248,7 @@ body.addEventListener('click', function (event) {
 				galleryPopupSlider.destroy();
 				galleryPopupSlider.mount();
 				//galleryPopupSlider.go(0)
+				gallerySlider.go(1)
 		
 				setTimeout(() => {
 					slider.classList.remove('_hidden');

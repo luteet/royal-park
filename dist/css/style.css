@@ -3768,6 +3768,7 @@ input:focus::placeholder,textarea:focus::placeholder {
         background-color: rgba(0,0,0,0);
         padding: 0;
         overflow: visible;
+        flex: 1 1 auto;
         opacity: 1;
         visibility: visible
     }

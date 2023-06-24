@@ -57,7 +57,6 @@ const gallerySlider = new Splide('.gallery__slider', {
 gallerySlider.on('mounted', function () {
 	setTimeout(() => {
 		gallerySlider.refresh();
-		//gallerySlider.go(1)
 		gallerySlider.options.speed = 0;
 		gallerySlider.go(1)
 		gallerySlider.options.speed = 2000;
